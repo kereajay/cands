@@ -26,6 +26,26 @@
             margin-top: 10%;
         }
 
+        #color {
+            width: 150px;
+            height: 50px;
+            border-radius: 20px;
+            color: purple;
+            font-size: large;
+            font-weight: bold;
+            box-shadow: 8px 8px 8px black;
+        }
+
+        #shape {
+            width: 150px;
+            height: 50px;
+            border-radius: 20px;
+            color: purple;
+            font-size: large;
+            font-weight: bold;
+            box-shadow: 8px 8px 8px black;
+        }
+
         /* #onea {
             height: 100px;
             width: 100px;
@@ -38,7 +58,7 @@
         #two {
             margin: auto;
             text-align: center;
-            
+
         }
 
         /* #triangle-up {
@@ -56,22 +76,30 @@
          
            
         } */
-        .triangle{
+        .triangle {
             height: 75px;
             width: 75px;
             background-color: red;
             margin: auto;
             margin-top: 30%;
 
-        clip-path: polygon(0% 0%,100% 100%,0% 100%);
+            clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
         }
-        .square{
+
+        .square {
             height: 75px;
             width: 75px;
             margin: auto;
             margin-top: 30%;
             background-color: white;
-        /* clip-path: polygon(0% 0%,100% 0%,100% 100%,100% 100%); */
+            /* clip-path: polygon(0% 0%,100% 0%,100% 100%,100% 100%); */
+        }
+
+        .triangle2 {
+            background-color: #003BDE;
+            clip-path: polygon(50% 0, 100% 100%, 0 100%);
+            width: 100px;
+            height: 100px;
         }
     </style>
 </head>
@@ -85,7 +113,7 @@
                 <br>
             <div id="triangle-up"></div> -->
         </div>
-        </div>
+    </div>
     </div>
     <br>
     <br>
@@ -98,35 +126,42 @@
     <script>
         // let circel = document.getElementById('one');
         //     circel.style.backgroundColor = "orange";
-        const cool = ["red", "orange", "blue", "aqua", "green", "yellow", "violet", "blueviolet","black","brown"]
+        const cool = ["red", "orange", "blue", "aqua", "green", "yellow", "violet", "blueviolet", "black", "brown"]
         let color1 = document.getElementById('color')
         color1.addEventListener('click', () => {
-            let circel = parseInt(Math.random() * cool.length);
+            var circel = parseInt(Math.random() * cool.length);
             let circ = document.getElementById('one');
             circ.style.backgroundColor = cool[circel];
+            color1.style.backgroundColor = cool[circel];
         });
 
-       let flag=true;
-            let shape=document.getElementById('shape')
-            let changeshape=()=>{
-                 const change=document.getElementById('one');
-                 const newDiv=document.createElement('div');
-                 if(flag==true){
-                    newDiv.classList.add('square');
-                 }
-                 else{
-                    newDiv.classList.add('triangle');
-                 }
-                 flag=!flag;
-                 change.innerHTML='';
-                 change.appendChild(newDiv)
+        let flag = true;
+        let shape = document.getElementById('shape')
+        var circel = parseInt(Math.random() * cool.length);
 
+        shape.style.backgroundColor = cool[circel];
+        let changeshape = () => {
+            const change = document.getElementById('one');
+            const newDiv = document.createElement('div');
+
+            if (flag == true) {
+                newDiv.classList.add('square');
             }
-            shape.addEventListener('click',changeshape)
-            changeshape();
+            else {
+                newDiv.classList.add('triangle');
+            }
 
-           
-      
+
+            flag = !flag;
+            change.innerHTML = '';
+            change.appendChild(newDiv)
+
+        }
+        shape.addEventListener('click', changeshape)
+        changeshape();
+
+
+
     </script>
 </body>
 
